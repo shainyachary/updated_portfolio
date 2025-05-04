@@ -121,6 +121,7 @@ header .menu__bar {
 header .menu__bar i {
   font-size: 2.5em;
   color: var(--theme-color);
+  cursor: pointer;
 }
 header .navlinks {
   display: flex;
@@ -310,10 +311,19 @@ body.light .home .content__box .social_btns i:hover {
   font-weight: 600;
   letter-spacing: 1px;
   padding: 1em 2em;
-  border-radius: 0.5em;
+  border-radius: 2em;
   margin: 1em 0;
   background-color: var(--theme-color);
   color: var(--primary);
+  box-shadow: 0 0.3em 1em var(--theme-color);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+#downloadBtn:hover {
+  border: 1.5px solid var(--theme-color);
+  background-color: transparent;
+  color: var(--theme-color);
 }
 
 .home .img__box {
@@ -441,3 +451,162 @@ body.light .services .services__contain .service__box .service__para {
   color: var(--secondary);
 }
 /* ****** services code ends ****** */
+/* ****** skills code starts ****** */
+.skills {
+  background-image: url(../assets/skills_bg.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.skills__contain {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 4em;
+  margin: 4em auto;
+  width: min(900px, 90%);
+}
+.skills__contain .box {
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 100%;
+  height: 120px;
+  padding: 1em;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.skills__contain .box:hover {
+  border-radius: 10px;
+  border-color: var(--theme-color);
+  box-shadow: rgba(0, 119, 182, 0.4) 5px 5px, rgba(0, 119, 182, 0.3) 10px 10px;
+}
+.skills__contain .box .skill__title {
+  font-size: 1.7em;
+  color: var(--theme-color);
+  font-weight: 700;
+  margin-top: 0.5em;
+}
+.skills__contain .box i {
+  font-size: 3em;
+  color: var(--primary);
+}
+body.light .skills__contain .box i {
+  color: var(--theme-color);
+}
+
+/* media queries */
+@media (max-width: 990px) {
+  .skills {
+    background-size: 100% 130%;
+  }
+}
+@media (max-width: 320px) {
+  .skills__contain .box {
+    width: 50%;
+    margin: auto;
+  }
+}
+/* ****** skills code ends ****** */
+/* ****** about code starts ****** */
+.about__contain {
+  margin: 4em auto;
+  width: min(900px, 80%);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  place-items: center;
+  gap: 3em;
+}
+.about__contain .img__box {
+  width: 100%;
+  background-color: var(--secondary);
+  position: relative;
+  height: 300px;
+  z-index: 100;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.about__contain .img__box::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 130%;
+  background: linear-gradient(
+    var(--theme-color),
+    var(--theme-color2),
+    var(--secondary)
+  );
+  border-radius: 10px;
+}
+.about__contain .img__box::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 9px;
+  background-color: var(--secondary);
+}
+body.light .about__contain .img__box::after {
+  background-color: var(--primary);
+}
+.about__contain .img__box img {
+  position: absolute;
+  top: 1em;
+  width: 100%;
+  z-index: 20;
+}
+.about__contain .about__content .about__title {
+  font-size: 2.7em;
+  font-weight: 700;
+  color: var(--theme-color);
+  text-transform: capitalize;
+}
+.about__contain .about__content .about__desc {
+  font-size: 1.4em;
+  color: var(--primary);
+  margin: 1em 0 2em;
+  line-height: 2;
+}
+body.light .about__contain .about__content .about__desc {
+  color: var(--secondary);
+}
+.about__contain .about__content #btn__contact {
+  padding: 0.7em 3em;
+  border: 1.5px solid var(--theme-color);
+  font-size: 1.3em;
+  font-weight: 600;
+  color: var(--primary);
+  border-radius: 2em;
+  background-color: var(--theme-color);
+  transition: all 0.5s ease;
+}
+.about__contain .about__content #btn__contact:hover {
+  background-color: transparent;
+  color: var(--theme-color);
+}
+/* ******media queries ******* */
+@media screen and (max-width: 990px) {
+  .about__contain .img__box {
+    width: min(200px, 80%);
+    height: 200px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .about__contain {
+    grid-template-columns: 1fr;
+    margin: 3em auto;
+  }
+  .about__contain .img__box {
+    width: min(200px, 80%);
+    height: 250px;
+  }
+  .about__contain .about__content {
+    text-align: center;
+  }
+}
+/* ****** about code ends ****** */
