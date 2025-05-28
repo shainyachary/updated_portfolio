@@ -4,7 +4,8 @@ let theme__container = document.querySelector(".theme__container"),
   menu = document.querySelector(".menu__bar i"),
   navlinks = document.querySelector(".navlinks"),
   typedText = document.querySelector("#typed"),
-  download_link = document.querySelector("#downloadBtn");
+  download_link = document.querySelector("#downloadBtn"),
+  links = navlinks.querySelectorAll("a");
 
 // -------------menu ------------
 menu.addEventListener("click", () => {
@@ -18,6 +19,13 @@ menu.addEventListener("click", () => {
 window.addEventListener("scroll", () => {
   navlinks.classList.remove("open");
   menu.classList.replace("ri-close-fill", "ri-menu-3-line");
+});
+
+links.forEach((link) => {
+  link.addEventListener("click", () => {
+    links.forEach((l) => l.classList.remove("active"));
+    link.classList.add("active");
+  });
 });
 
 // ------------ typed text -----------

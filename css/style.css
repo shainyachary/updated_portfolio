@@ -135,8 +135,8 @@ header .navlinks a {
   text-transform: capitalize;
   transition: 0.3s ease;
 }
-header .navlinks a:hover,
-header .navlinks a.active {
+header .navlinks a.active,
+header .navlinks a:hover {
   color: var(--primary);
 }
 body.light header {
@@ -218,6 +218,7 @@ body.light .theme__btn i {
     color: var(--secondary);
     text-align: left;
     display: block;
+    font-size: 1.8em;
   }
   body.light header .navlinks a:hover,
   body.light header .navlinks a.active {
@@ -631,10 +632,10 @@ body.light .about__contain .about__content .about__desc {
   position: relative;
   padding: 1em 3em;
   width: 50%;
+  cursor: pointer;
 }
 .box_right {
   left: 0;
-  padding-right: 2em;
 }
 .box_left {
   left: 50%;
@@ -645,7 +646,7 @@ body.light .about__contain .about__content .about__desc {
   background-color: transparent;
   border: 1.5px solid var(--theme-color);
   border-radius: 1em;
-  box-shadow: 0 0.5em 1em var(--theme-color);
+  box-shadow: 0 0.2em 1em var(--theme-color);
 }
 .qualification__content::after {
   content: "";
@@ -676,4 +677,209 @@ body.light .about__contain .about__content .about__desc {
 .box_left .dot {
   left: -5px;
 }
+.qualification__content h4 {
+  color: var(--theme-color);
+  font-size: 1.35em;
+  margin-bottom: 0.55em;
+}
+body.light .qualification__content p {
+  color: #333;
+}
+.qualification__content p {
+  color: #fff;
+  font-size: 1.15em;
+  font-weight: 500;
+}
+.qualification__content p strong {
+  text-decoration: underline;
+  text-decoration-color: var(--theme-color);
+  color: var(--theme-color);
+}
+
+@media (max-width: 580px) {
+  .qualification__contain .line {
+    left: 0;
+  }
+  .dot {
+    left: -5px;
+  }
+  .box_left {
+    left: 0;
+  }
+  .box_left .dot {
+    left: -1%;
+  }
+  .qualification__content::after {
+    border-left: 0;
+    border-right: 10px solid var(--theme-color);
+    left: -10px;
+  }
+  .qualification__contain .qualification__card {
+    width: 100%;
+  }
+}
 /* ****** qualification code ends ****** */
+/* ****** projects code starts ****** */
+.project__image {
+  width: 80%;
+  margin: 5em auto 1em;
+  display: grid;
+  gap: 2em;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 20rem;
+}
+.project__card {
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 1em;
+  position: relative;
+}
+.project__card:nth-child(2) {
+  grid-area: 1/2/3/4;
+}
+.project__card img {
+  width: 100%;
+  transition: 0.3s;
+  height: 100%;
+  object-fit: cover;
+}
+.project__card:hover img {
+  transform: scale(1.05);
+}
+.project__card__content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -100%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+.project__card__content a {
+  font-size: 1.8em;
+  font-weight: 600;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  text-transform: capitalize;
+}
+.project__card:hover .project__card__content {
+  transform: translateY(100%);
+}
+
+/* ****** projects code ends ****** */
+
+/* ****** contact code starts ****** */
+.contact__container {
+  width: 70%;
+  margin: 4rem auto 1em;
+}
+form {
+  width: 100%;
+  padding: 1em 1.5em;
+  border-radius: 1em;
+  display: grid;
+  gap: 2em;
+}
+.form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2em;
+}
+.input__control__text,
+.input__control {
+  position: relative;
+}
+.input__control input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--theme-color);
+  outline: none;
+  border-radius: 0.3em;
+  background-color: transparent;
+  padding: 0 15px;
+  font-size: 1.2em;
+  color: var(--theme-color);
+}
+.input__control__text textarea {
+  width: 100%;
+  height: 10em;
+  color: var(--theme-color);
+  font-size: 1.2em;
+  background-color: transparent;
+  border: 1px solid var(--theme-color);
+  border-radius: 0.3em;
+  padding: 10px 15px;
+  outline: none;
+  resize: none;
+}
+.input__control__text label {
+  position: absolute;
+  top: 1.5em;
+  transform: translateY(-50%);
+  left: 10px;
+  padding: 0 5px;
+  color: var(--theme-color);
+  font-size: 1.2em;
+  transition: 0.3s;
+  pointer-events: none;
+}
+.input__control label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  padding: 0 5px;
+  transform: translateY(-50%);
+  font-size: 1.2em;
+  color: var(--theme-color);
+  transition: 0.3s;
+  pointer-events: none;
+}
+textarea:focus ~ label,
+textarea:valid ~ label {
+  top: 0.1em;
+  font-size: 1em;
+  font-weight: 600;
+  background-color: var(--secondary);
+}
+input:valid ~ label,
+input:focus ~ label {
+  top: 0;
+  font-weight: 600;
+  background-color: var(--secondary);
+  font-size: 1em;
+}
+body.light textarea:valid ~ label,
+body.light textarea:focus ~ label,
+body.light input:valid ~ label,
+body.light input:focus ~ label {
+  background-color: #fff;
+}
+.btn__group {
+  width: 70%;
+  margin: 1em auto;
+}
+.btn__group button {
+  width: 100%;
+  padding: 1em;
+  background-color: var(--theme-color);
+  border-radius: 0.8em;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn__group button:hover {
+  background-color: #066091;
+}
+@media (max-width: 768px) {
+  .form__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ****** contact code ends ****** */
